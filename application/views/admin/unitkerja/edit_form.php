@@ -35,7 +35,16 @@
 
 						<form action="<?php base_url('admin/unitkerja/edit') ?>" method="post" enctype="multipart/form-data">
 
-							<input type="hidden" name="kode" value="<?php echo $unitkerja->unitkerja_kode?>" />
+							<input type="hidden" name="kode" value="<?php echo $unitkerja->kode?>" />
+							
+							<div class="form-group">
+								<label for="name">Kode*</label>
+								<input class="form-control <?php echo form_error('kode') ? 'is-invalid':'' ?>"
+								 type="text" name="kode" placeholder="Kode Unit Kerja" value="<?php echo $unitkerja->kode ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('kode') ?>
+								</div>
+							</div>
 
 							<div class="form-group">
 								<label for="name">Nama*</label>
@@ -57,8 +66,8 @@
 
 							<div class="form-group">
 								<label for="name">PIC*</label>
-								<textarea class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
-								 name="pic" placeholder="PIC"></textarea>
+								<input class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
+								 type="text" name="pic" placeholder="PIC" value="<?php echo $unitkerja->pic ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('pic') ?>
 								</div>
