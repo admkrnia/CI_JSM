@@ -6,7 +6,7 @@
             <span>DASHBOARD</span>
         </a>
     </li>
-    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'products' ? 'active': '' ?>">
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'unitkerja' ? 'active': '' ?>">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <i class="fas fa-fw fa-boxes"></i>
@@ -15,6 +15,17 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo site_url('admin/unitkerja/add') ?>">New Unit Kerja</a>
             <a class="dropdown-item" href="<?php echo site_url('admin/unitkerja') ?>">List Unit Kerja</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'kelompokbarang' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Kelompok Barang</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/kelompokbarang/add') ?>">New Kelompok Barang</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/kelompokbarang') ?>">List Kelompok Barang</a>
         </div>
     </li>
     <li class="nav-item">
