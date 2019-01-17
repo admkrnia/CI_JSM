@@ -40,6 +40,17 @@
             <a class="dropdown-item" href="<?php echo site_url('admin/kelompokbarang') ?>">List Kelompok Barang</a>
         </div>
     </li>
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'subkelompok' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Sub Kelompok</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/subkelompok/add') ?>">New Sub Kelompok</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/subkelompok') ?>">List Sub Kelompok</a>
+        </div>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-users"></i>
