@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/unitkerja/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/lokasibarang/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -37,24 +37,24 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($unitkerja_data as $unitkerja): ?>
+									<?php foreach ($lokasibarang_data as $lokasibarang): ?>
 									<tr>
 										<td width="150">
-											<?php echo $unitkerja->kode ?>
+											<?php echo $lokasibarang->kode ?>
 										</td>
 										<td>
-											<?php echo $unitkerja->nama ?>
+											<?php echo $lokasibarang->nama ?>
 										</td>
 										<td>
-											<?php echo $unitkerja->tanggal ?>
+											<?php echo $lokasibarang->tanggal ?>
 										</td>
 										<td>
-											<?php echo $unitkerja->pic ?>
+											<?php echo $lokasibarang->pic ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/unitkerja/edit/'.$unitkerja->kode) ?>"
+											<a href="<?php echo site_url('admin/lokasibarang/edit/'.$lokasibarang->kode) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/unitkerja/delete/'.$unitkerja->kode) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/lokasibarang/delete/'.$lokasibarang->kode) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>
@@ -89,6 +89,7 @@
 			$('#deleteModal').modal();
 		}
 	</script>
+
 </body>
 
 </html>
