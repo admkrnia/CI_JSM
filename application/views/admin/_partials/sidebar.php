@@ -51,6 +51,17 @@
             <a class="dropdown-item" href="<?php echo site_url('admin/subkelompok') ?>">List Sub Kelompok</a>
         </div>
     </li>
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'subsubkelompok' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Sub-sub Kelompok</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/subsubkelompok/add') ?>">New Sub-sub Kelompok</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/subsubkelompok') ?>">List Sub-sub Kelompok</a>
+        </div>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-users"></i>
