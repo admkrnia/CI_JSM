@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2019 at 09:43 AM
+-- Generation Time: Jan 21, 2019 at 03:58 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `id_detail`
+-- Table structure for table `tb_detail`
 --
 
-CREATE TABLE `id_detail` (
-  `kode` int(11) NOT NULL,
+CREATE TABLE `tb_detail` (
+  `id` int(3) NOT NULL,
   `kodelokasi` char(3) NOT NULL,
   `kodeunit` char(3) NOT NULL,
   `kodekelompok` char(3) NOT NULL,
@@ -57,6 +57,14 @@ CREATE TABLE `tb_kelompokbarang` (
   `pic` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_kelompokbarang`
+--
+
+INSERT INTO `tb_kelompokbarang` (`kode`, `nama`, `tanggal`, `pic`) VALUES
+('', 'Ndi', '2019-01-25', 'Adam'),
+('12', 'Pecah Belah', '2019-01-17', 'Adama');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +78,13 @@ CREATE TABLE `tb_lokasibarang` (
   `pic` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_lokasibarang`
+--
+
+INSERT INTO `tb_lokasibarang` (`kode`, `nama`, `tanggal`, `pic`) VALUES
+('11', 'MNA', '2019-01-21', 'Adam');
+
 -- --------------------------------------------------------
 
 --
@@ -79,7 +94,7 @@ CREATE TABLE `tb_lokasibarang` (
 CREATE TABLE `tb_pemeriksaan` (
   `id` int(11) NOT NULL,
   `id_ruang` int(3) NOT NULL,
-  `id_detail` int(11) NOT NULL,
+  `id_detail` int(3) NOT NULL,
   `pic` int(40) NOT NULL,
   `jumlahbarang` int(100) NOT NULL,
   `status` char(10) NOT NULL,
@@ -110,6 +125,13 @@ CREATE TABLE `tb_subkelompok` (
   `tanggal` date NOT NULL,
   `pic` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_subkelompok`
+--
+
+INSERT INTO `tb_subkelompok` (`id`, `kode`, `nama`, `tanggal`, `pic`) VALUES
+(5, '01', 'Tanah Persil Perumahan Kelas', '0000-00-00', 'Adam');
 
 -- --------------------------------------------------------
 
@@ -143,17 +165,18 @@ CREATE TABLE `tb_unitkerja` (
 --
 
 INSERT INTO `tb_unitkerja` (`kode`, `nama`, `tanggal`, `pic`) VALUES
-('010', 'Kantor Pusat', '2019-01-17', 'Adam');
+('010', 'Kantor Pusat', '2019-01-17', 'Adam'),
+('020', 'Gerbang Tol Waru', '2019-01-23', 'Adam');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `id_detail`
+-- Indexes for table `tb_detail`
 --
-ALTER TABLE `id_detail`
-  ADD PRIMARY KEY (`kode`),
+ALTER TABLE `tb_detail`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `kodelokasi` (`kodelokasi`),
   ADD KEY `kodeunit` (`kodeunit`),
   ADD KEY `kodekelompok` (`kodekelompok`),
@@ -209,10 +232,10 @@ ALTER TABLE `tb_unitkerja`
 --
 
 --
--- AUTO_INCREMENT for table `id_detail`
+-- AUTO_INCREMENT for table `tb_detail`
 --
-ALTER TABLE `id_detail`
-  MODIFY `kode` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tb_detail`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_pemeriksaan`
@@ -230,7 +253,7 @@ ALTER TABLE `tb_ruang`
 -- AUTO_INCREMENT for table `tb_subkelompok`
 --
 ALTER TABLE `tb_subkelompok`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_subsubkelompok`
@@ -243,20 +266,20 @@ ALTER TABLE `tb_subsubkelompok`
 --
 
 --
--- Constraints for table `id_detail`
+-- Constraints for table `tb_detail`
 --
-ALTER TABLE `id_detail`
-  ADD CONSTRAINT `id_detail_ibfk_1` FOREIGN KEY (`kodelokasi`) REFERENCES `tb_lokasibarang` (`kode`),
-  ADD CONSTRAINT `id_detail_ibfk_2` FOREIGN KEY (`kodeunit`) REFERENCES `tb_unitkerja` (`kode`),
-  ADD CONSTRAINT `id_detail_ibfk_3` FOREIGN KEY (`kodekelompok`) REFERENCES `tb_kelompokbarang` (`kode`),
-  ADD CONSTRAINT `id_detail_ibfk_4` FOREIGN KEY (`idsub`) REFERENCES `tb_subkelompok` (`id`),
-  ADD CONSTRAINT `id_detail_ibfk_5` FOREIGN KEY (`idsubsub`) REFERENCES `tb_subsubkelompok` (`id`);
+ALTER TABLE `tb_detail`
+  ADD CONSTRAINT `tb_detail_ibfk_1` FOREIGN KEY (`kodelokasi`) REFERENCES `tb_lokasibarang` (`kode`),
+  ADD CONSTRAINT `tb_detail_ibfk_2` FOREIGN KEY (`kodeunit`) REFERENCES `tb_unitkerja` (`kode`),
+  ADD CONSTRAINT `tb_detail_ibfk_3` FOREIGN KEY (`kodekelompok`) REFERENCES `tb_kelompokbarang` (`kode`),
+  ADD CONSTRAINT `tb_detail_ibfk_4` FOREIGN KEY (`idsub`) REFERENCES `tb_subkelompok` (`id`),
+  ADD CONSTRAINT `tb_detail_ibfk_5` FOREIGN KEY (`idsubsub`) REFERENCES `tb_subsubkelompok` (`id`);
 
 --
 -- Constraints for table `tb_pemeriksaan`
 --
 ALTER TABLE `tb_pemeriksaan`
-  ADD CONSTRAINT `tb_pemeriksaan_ibfk_1` FOREIGN KEY (`id_detail`) REFERENCES `id_detail` (`kode`),
+  ADD CONSTRAINT `tb_pemeriksaan_ibfk_1` FOREIGN KEY (`id_detail`) REFERENCES `tb_detail` (`id`),
   ADD CONSTRAINT `tb_pemeriksaan_ibfk_2` FOREIGN KEY (`id_ruang`) REFERENCES `tb_ruang` (`id`);
 COMMIT;
 
