@@ -42,7 +42,7 @@
 							<div class="form-group">
 								<label for="name">Kode*</label>
 								<input class="form-control <?php echo form_error('kode') ? 'is-invalid':'' ?>"
-								 type="text" name="kode" placeholder="Kode Kelompok Barang" value="<?php echo $subkelompok->kode ?>" />
+								 type="text" name="kode" placeholder="Kode Sub Kelompok Barang" value="<?php echo $subkelompok->kode ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('kode') ?>
 								</div>
@@ -51,7 +51,7 @@
 							<div class="form-group">
 								<label for="name">Nama*</label>
 								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Kelompok Barang" value="<?php echo $subkelompok->nama ?>" />
+								 type="text" name="nama" placeholder="Nama Sub Kelompok Barang" value="<?php echo $subkelompok->nama ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
 								</div>

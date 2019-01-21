@@ -28,50 +28,21 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/subsubkelompok/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo site_url('admin/report/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/subsubkelompok/edit') ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php base_url('admin/report/edit') ?>" method="post" enctype="multipart/form-data">
 
-							<input type="hidden" name="id" value="<?php echo $subsubkelompok->id?>" />
-							
-				
-
-							<div class="form-group">
-								<label for="name">Kode*</label>
-								<input class="form-control <?php echo form_error('kode') ? 'is-invalid':'' ?>"
-								 type="text" name="kode" placeholder="Kode Sub-Sub Kelompok Barang" value="<?php echo $subsubkelompok->kode ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('kode') ?>
-								</div>
-							</div>
-
+							<input type="hidden" name="id" value="<?php echo $report->id?>" />
+						
 							<div class="form-group">
 								<label for="name">Nama*</label>
 								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Sub-Sub Kelompok Barang" value="<?php echo $subsubkelompok->nama ?>" />
+								 type="text" name="nama" placeholder="Nama " value="<?php echo $report->nama ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">Tanggal*</label>
-								<input class="form-control <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
-								 type="date" name="tanggal" placeholder="Tanggal Masuk" />
-								<div class="invalid-feedback">
-									<?php echo form_error('tanggal') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">PIC*</label>
-								<input class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
-								 type="text" name="pic" placeholder="PIC" value="<?php echo $subsubkelompok->pic ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('pic') ?>
 								</div>
 							</div>
 

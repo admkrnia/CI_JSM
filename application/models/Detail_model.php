@@ -119,7 +119,7 @@
 			return $tb_subkelompok->result_array();
 		}
 
-		public function subkelompokbarang()
+		public function subsubkelompok()
 		{
 			$this->db->order_by('kode', 'ASC');
 			$tb_subsubkelompok = $this->db->get('tb_subsubkelompok');

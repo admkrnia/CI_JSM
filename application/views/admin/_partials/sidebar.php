@@ -62,6 +62,17 @@
             <a class="dropdown-item" href="<?php echo site_url('admin/subsubkelompok') ?>">List Sub-sub Kelompok</a>
         </div>
     </li>
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'ruang' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Ruang</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/ruang/add') ?>">New Ruang</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/ruang') ?>">List Ruang</a>
+        </div>
+    </li>
     <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'detail' ? 'active': '' ?>">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -71,6 +82,29 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo site_url('admin/detail/add') ?>">New Detail</a>
             <a class="dropdown-item" href="<?php echo site_url('admin/detail') ?>">List Detail</a>
+        </div>
+    </li>
+
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'pemeriksaan' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Pemeriksaan</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/pemeriksaan/add') ?>">New pemeriksaan</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/pemeriksaan') ?>">List Pemeriksaan</a>
+        </div>
+    </li>
+
+    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'report' ? 'active': '' ?>">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Report</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="<?php echo site_url('admin/report') ?>">List Report</a>
         </div>
     </li>
     <li class="nav-item">
