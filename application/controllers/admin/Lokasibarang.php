@@ -20,6 +20,7 @@
 			$this->load->view("admin/lokasibarang/list", $data);
 		}
 
+
 		public function add()
 		{
 			$lokasibarang = $this->lokasibarang_model;

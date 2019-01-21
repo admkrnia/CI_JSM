@@ -13,8 +13,8 @@
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
-
 			<div class="container-fluid">
+
 
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
@@ -26,21 +26,86 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/subkelompok/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/detail/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/subkelompok/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/detail/add') ?>" method="post" enctype="multipart/form-data" >
+							
 							
 							<div class="form-group">
 								<label for="name">Kode Lokasi*</label>
-								<input class="form-control <?php echo form_error('kodelokasi') ? 'is-invalid':'' ?>"
-								 type="text" name="kodelokasi" placeholder="Kode Kelompok Barang"  />
-								<div class="invalid-feedback">
-									<?php echo form_error('kodelokasi') ?>
-								</div>
+								<select class="form-control" id="lokasibarang">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_lokasibarang')->result_array() as $lokbar) {
+										echo "<option value='".$lokbar['kode']."'>".$lokbar['kode']."-".$lokbar['nama']."</option>";
+									}
+
+									echo form_error('kodelokasi');
+								  ?>
+
+							    </select>
 							</div>
 
+							<div class="form-group">
+								<label for="name">Kode Unit*</label>
+								<select class="form-control" id="unitkerja">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_unitkerja')->result_array() as $uk) {
+										echo "<option value='".$uk['kode']."'>".$uk['kode']."-".$uk['nama']."</option>";
+									}
+
+									echo form_error('unitkerja');
+								  ?>
+
+							    </select>
+							</div>
+
+							<div class="form-group">
+								<label for="name">Kode Kelompok*</label>
+								<select class="form-control" id="kelompokbarang">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_kelompokbarang')->result_array() as $kk) {
+										echo "<option value='".$kk['kode']."'>".$kk['kode']."-".$kk['nama']."</option>";
+									}
+
+									echo form_error('kodekelompok');
+								  ?>
+
+							    </select>
+							</div>
+
+							<div class="form-group">
+								<label for="name">Kode Sub Kelompok*</label>
+								<select class="form-control" id="subkelompok">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_subkelompok')->result_array() as $ksk) {
+										echo "<option value='".$ksk['kode']."'>".$ksk['kode']."-".$ksk['nama']."</option>";
+									}
+
+									echo form_error('subkelompok');
+								  ?>
+							    </select>
+							</div>
+
+							<div class="form-group">
+								<label for="name">Kode Sub-sub Kelompok*</label>
+								<select class="form-control" id="subsubkelompok">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_subsubkelompok')->result_array() as $kbk) {
+										echo "<option value='".$kbk['kode']."'>".$kbk['kode']."-".$kbk['nama']."</option>";
+									}
+
+									echo form_error('subsubkelompok');
+								  ?>
+							    </select>
+							</div>
+<!-- 
 							<div class="form-group">
 								<label for="name">Kode Unit*</label>
 								<input class="form-control <?php echo form_error('kodeunit') ? 'is-invalid':'' ?>"
@@ -75,7 +140,7 @@
 								<div class="invalid-feedback">
 									<?php echo form_error('idsubsub') ?>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="form-group">
 								<label for="name">Nomor Urut Barang*</label>
@@ -91,7 +156,7 @@
 								<input class="form-control <?php echo form_error('nomorinventaris') ? 'is-invalid':'' ?>"
 								 type="text" name="nomorinventaris" placeholder="Nomor Inventaris Barang" />
 								<div class="invalid-feedback">
-									<?php echo form_error('nomorinventaris') ?>nomorinventaris
+									<?php echo form_error('nomorinventaris') ?>
 								</div>
 							</div>
 							

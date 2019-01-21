@@ -87,6 +87,46 @@
 			return $this->db->get($this->_table)->result();
 		}
 
+		public function lokasibarang()
+		{
+			$this->db->order_by('kode', 'ASC');
+			$tb_lokasibarang = $this->db->get('tb_lokasibarang');
+
+			return $tb_lokasibarang->result_array();
+		}
+
+		public function unitkerja()
+		{
+			$this->db->order_by('kode', 'ASC');
+			$tb_unitkerja = $this->db->get('tb_unitkerja');
+
+			return $tb_unitkerja->result_array();
+		}
+
+		public function kelompokbarang()
+		{
+			$this->db->order_by('kode', 'ASC');
+			$tb_kelompokbarang = $this->db->get('tb_kelompokbarang');
+
+			return $tb_kelompokbarang->result_array();
+		}
+
+		public function subkelompok()
+		{
+			$this->db->order_by('kode', 'ASC');
+			$tb_subkelompok = $this->db->get('tb_subkelompok');
+
+			return $tb_subkelompok->result_array();
+		}
+
+		public function subkelompokbarang()
+		{
+			$this->db->order_by('kode', 'ASC');
+			$tb_subsubkelompok = $this->db->get('tb_subsubkelompok');
+
+			return $tb_subsubkelompok->result_array();
+		}
+
 		public function getById($id)
 		{
 			return $this->db->get_where($this->_table, ["id" => $id])->row();

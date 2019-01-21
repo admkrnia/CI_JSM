@@ -67,8 +67,7 @@
 
 		public function delete($kode)
 	    {
-	    	$this->db->where("kode",$kode);
-	        return $this->db->delete($this->_table);
+	        return $this->db->delete($this->_table, array("kode" => $id));
 	    }
 	}
 

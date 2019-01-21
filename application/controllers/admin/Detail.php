@@ -20,6 +20,36 @@
 			$this->load->view("admin/detail/list", $data);
 		}
 
+		public function select_lokasibarang()
+		{
+			$data["kode_data"] = $this->detail_model->lokasibarang();
+			$this->load->view('admin/detail/new_form', $data);
+		}
+
+		public function select_unitkerja()
+		{
+			$data["kode_data"] = $this->detail_model->unitkerja();
+			$this->load->view('admin/detail/new_form', $data);
+		}
+
+		public function select_kelompokbarang()
+		{
+			$data["kode_data"] = $this->detail_model->kelompokbarang();
+			$this->load->view('admin/detail/new_form', $data);
+		}
+
+		public function select_subkelompok()
+		{
+			$data["kode_data"] = $this->detail_model->subkelompok();
+			$this->load->view('admin/detail/new_form', $data);
+		}
+
+		public function select_subsubkelompok()
+		{
+			$data["kode_data"] = $this->detail_model->subsubkelompok();
+			$this->load->view('admin/detail/new_form', $data);
+		}
+
 		public function add()
 		{
 			$detail = $this->detail_model;

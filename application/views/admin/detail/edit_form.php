@@ -117,7 +117,7 @@
 									<?php echo form_error('warna') ?>
 								</div>
 							</div>
-
+							
 							<div class="form-group">
 								<label for="name">Status*</label>
 								<select class="form-control" id="status">

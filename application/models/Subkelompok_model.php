@@ -71,8 +71,7 @@
 
 		public function delete($id)
 	    {
-	        $this->db->where("id",$id);
-	        return $this->db->delete($this->_table);
+	        return $this->db->delete($this->_table, array("id" => $id));
 	    }
 	}
 
