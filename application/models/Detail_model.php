@@ -127,6 +127,22 @@
 			return $tb_subsubkelompok->result_array();
 		}
 
+		public function nomorinventaris()
+		{
+
+			$this->db->select('tb_detail.*, CONCAT(tb_lokasibarang.kode, ".", tb_unitkerja.kode, "/", tb_kelompokbarang.kode, ".", tb_subkelompok.kode, ".", tb_subsubkelompok.kode, "/", tb_detail.nomorurut) as nomorinventaris', FALSE);
+			$this->db->from('tb_detail', '');
+			$this->db->join('tb_unitkerja', 'tb_unitkerja.kode = tb_detail.kodeunit', 'inner');
+			$this->db->join('tb_lokasibarang', 'tb_lokasibarang.kode = tb_detail.kodelokasi', 'inner');
+			$this->db->join('tb_kelompokbarang', 'tb_kelompokbarang.kode = tb_detail.kodekelompok', 'inner');
+			$this->db->join('tb_subkelompok', 'tb_subkelompok.id = tb_detail.idsub', 'inner');
+			$this->db->join('Table', 'tb_subsubkelompok.id = tb_detail.idsubsub', 'inner');
+			$this->db->where('deleted', 0);
+			// GASIDO NGGAWE IKI SOALE MUMET BROOOOOOOOOOOOOOOOOOOOOOOOOO SELECT tb_detail.kodelokasi, tb_detail.kodeunit, tb_detail.kodekelompok, tb_subkelompok.kode AS tb_subkelompokkode, tb_subsubkelompok.kode AS tb_subsubkelompokkode, tb_detail.nomorurut, tb_lokasibarang.kode+"." & tb_unitkerja.kode+"/" & tb_kelompokbarang.kode+"." & tb_subkelompok.kode+"." & tb_subsubkelompok.kode+"/" & tb_detail.nomorurut AS nomorinventaris, tb_subsubkelompok.nama AS nama, tb_detail.tipe, tb_detail.warna, tb_detail.status, tb_detail.pic, tb_detail.tanggal 
+
+			// FROM tb_unitkerja INNER JOIN (tb_lokasibarang INNER JOIN (tb_kelompokbarang INNER JOIN (tb_subsubkelompok INNER JOIN (tb_subkelompok INNER JOIN tb_detail ON tb_subkelompok.id = tb_detail.idsub) ON tb_subsubkelompok.id = tb_detail.idsubsub) ON tb_kelompokbarang.kode = tb_detail.kodekelompok) ON tb_lokasibarang.kode = tb_detail.kodelokasi) ON tb_unitkerja.kode = tb_detail.kodeunit
+		}
+		
 		public function getById($id)
 		{
 			return $this->db->get_where($this->_table, ["id" => $id])->row();
