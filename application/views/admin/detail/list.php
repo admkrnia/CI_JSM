@@ -39,7 +39,6 @@
 										<th>Tipe</th>
 										<th>Warna</th>
 										<th>Status</th>
-										<th>Nama</th>
 										<th>Tanggal</th>
 										<th>PIC</th>
 										<th>Action</th>
@@ -78,9 +77,7 @@
 										<td>
 											<?php echo $detail->status?>
 										</td>
-										<td>
-											<?php echo $detail->nama ?>
-										</td>
+										
 										<td>
 											<?php echo $detail->tanggal ?>
 										</td>

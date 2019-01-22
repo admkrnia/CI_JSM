@@ -162,10 +162,11 @@
 			$this->tipe = $post["tipe"];
 			$this->warna = $post["warna"];
 			$this->status = $post["status"];
-			$this->nama = $post["nama"];
 			$this->tanggal=$post["tanggal"];
 			$this->pic=$post["pic"];
-			$this->db->insert($this->_table, $this);
+			unset($post['btn']);
+			unset($post['nama']);
+			$this->db->insert($this->_table, $post);
 		}
 
 		public function update()

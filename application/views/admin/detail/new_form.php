@@ -32,10 +32,10 @@
 
 						<form action="<?php base_url('admin/detail/add') ?>" method="post" enctype="multipart/form-data" >
 							
-							
+							<?php echo validation_errors() ?>
 							<div class="form-group">
 								<label for="name">Kode Lokasi*</label>
-								<select class="form-control" id="lokasibarang">
+								<select class="form-control" id="lokasibarang" name="kodelokasi">
 							      <option value='0'>--pilih--</option>
 							      <?php 
 									foreach ($this->db->get('tb_lokasibarang')->result_array() as $lokbar) {
@@ -50,7 +50,7 @@
 
 							<div class="form-group">
 								<label for="name">Kode Unit*</label>
-								<select class="form-control" id="unitkerja">
+								<select class="form-control" id="unitkerja" name="kodeunit">
 							      <option value='0'>--pilih--</option>
 							      <?php 
 									foreach ($this->db->get('tb_unitkerja')->result_array() as $uk) {
@@ -65,7 +65,7 @@
 
 							<div class="form-group">
 								<label for="name">Kode Kelompok*</label>
-								<select class="form-control" id="kelompokbarang">
+								<select class="form-control" id="kelompokbarang" name="kodekelompok">
 							      <option value='0'>--pilih--</option>
 							      <?php 
 									foreach ($this->db->get('tb_kelompokbarang')->result_array() as $kk) {
@@ -80,11 +80,11 @@
 
 							<div class="form-group">
 								<label for="name">Kode Sub Kelompok*</label>
-								<select class="form-control" id="subkelompok">
+								<select class="form-control" id="subkelompok" name="idsub">
 							      <option value='0'>--pilih--</option>
 							      <?php 
 									foreach ($this->db->get('tb_subkelompok')->result_array() as $ksk) {
-										echo "<option value='".$ksk['kode']."'>".$ksk['kode']."-".$ksk['nama']."</option>";
+										echo "<option value='".$ksk['id']."' data-kode='".$ksk['kode']."'>".$ksk['kode']."-".$ksk['nama']."</option>";
 									}
 
 									echo form_error('subkelompok');
@@ -94,11 +94,11 @@
 
 							<div class="form-group">
 								<label for="name">Kode Sub-sub Kelompok*</label>
-								<select class="form-control" id="subsubkelompok">
+								<select class="form-control" id="subsubkelompok" name="idsubsub">
 							      <option value='0'>--pilih--</option>
 							      <?php 
 									foreach ($this->db->get('tb_subsubkelompok')->result_array() as $kbk) {
-										echo "<option value='".$kbk['kode']."'>".$kbk['kode']."-".$kbk['nama']."</option>";
+										echo "<option value='".$kbk['id']."' data-kode='".$ksk['kode']."'>".$kbk['kode']."-".$kbk['nama']."</option>";
 									}
 
 									echo form_error('subsubkelompok');
@@ -145,7 +145,7 @@
 							<div class="form-group">
 								<label for="name">Nomor Urut Barang*</label>
 								<input class="form-control <?php echo form_error('nomorurut') ? 'is-invalid':'' ?>"
-								 type="text" name="nomorurut" placeholder="Kode Kelompok Barang" />
+								 type="text" name="nomorurut" id="nomorurut" placeholder="Kode Kelompok Barang" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nomorurut') ?>
 								</div>
@@ -154,10 +154,22 @@
 							<div class="form-group">
 								<label for="name">Nomor Inventaris Barang*</label>
 								<input class="form-control <?php echo form_error('nomorinventaris') ? 'is-invalid':'' ?>"
-								 type="text" name="nomorinventaris" placeholder="Nomor Inventaris Barang" />
+								 type="text" name="nomorinventaris" id="nomorinventaris" placeholder="Nomor Inventaris Barang" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nomorinventaris') ?>
 								</div>
+								<script type="text/javascript">
+									$('#lokasibarang, #unitkerja, #kelompokbarang, #subkelompok, #subsubkelompok, #nomorurut').change(function(){
+										var lokasibarang = $('#lokasibarang :selected').val();
+										var unit = $('#unitkerja :selected').val();
+										var kelompok = $('#kelompokbarang :selected').val();
+										var subkelompok = $('#subkelompok :selected').data('kode');
+										var sub2kelompok = $('#subsubkelompok :selected').data('kode');
+										var nomorurut = $('#nomorurut').val();
+										var noinv = lokasibarang+'.'+unit+'/'+kelompok+'.'+subkelompok+'.'+sub2kelompok+'/'+nomorurut;
+										$('#nomorinventaris').val(noinv);
+									});
+								</script>
 							</div>
 							
 							<div class="form-group">
@@ -180,7 +192,7 @@
 					
 							<div class="form-group">
 								<label for="name">Status*</label>
-								<select class="form-control" id="status">
+								<select class="form-control" id="status" name="status">
 							      <option>Baik</option>
 							      <option>Rusak</option>
 							    </select>
@@ -189,7 +201,7 @@
 							<div class="form-group">
 								<label for="name">Nama*</label>
 								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Barang" />
+								 type="text" placeholder="Nama Barang" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
 								</div>

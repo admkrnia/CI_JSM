@@ -20,4 +20,10 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('css/sb-admin.css')?>" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+
+    <script src="<?php echo base_url('assets/jquery/jquery.min.js') ?>"></script>
+
+
+
   </head>
