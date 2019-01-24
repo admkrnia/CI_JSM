@@ -29,11 +29,8 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Id Ruang</th>
-										<th>Id Detail</th>
+										<th>Ruang</th>
 										<th>PIC</th>
-										<th>Jumlah Barang</th>
-										<th>Status</th>
 										<th>Tanggal</th>
 										<th>Action</th>
 									</tr>
@@ -42,24 +39,14 @@
 									<?php foreach ($pemeriksaan_data as $pemeriksaan): ?>
 									<tr>
 										<td width="150">
-											<?php echo $pemeriksaan->id_ruang ?>
-										</td>
-										<td>
-											<?php echo $pemeriksaan->id_detail?>
+											<?php echo $pemeriksaan->nama_ruang ?>
 										</td>
 										<td>
 											<?php echo $pemeriksaan->pic?>
 										</td>
 										<td>
-											<?php echo $pemeriksaan->jumlahbarang ?>
-										</td>
-										<td>
-											<?php echo $pemeriksaan->status?>
-										</td>
-										<td>
 											<?php echo $pemeriksaan->tanggalcek ?>
 										</td>
-										
 										<td width="250">
 											<a href="<?php echo site_url('admin/pemeriksaan/edit/'.$pemeriksaan->id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>

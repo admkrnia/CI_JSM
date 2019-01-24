@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/report/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/detailpemeriksaan/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -29,41 +29,39 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>No. Inv. Barang</th>
-										<th>Nama Barang</th>
-										<th>Tipe</th>
-										<th>Warna</th>
+										<th>Id Pemeriksaan</th>
+										<th>id Detail</th>
+										<th>Jumlah</th>
 										<th>Status</th>
-										<th>PIC</th>
-										<th>Tanggal</th>
+										<th>Foto</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($report_data as $report): ?>
+									<?php foreach ($detailpemeriksaan_data as $detailpemeriksaan): ?>
 									<tr>
-									
-										<td>
-											<?php echo $report->nomorinventaris ?>
+										<td width="150">
+											<?php echo $detailpemeriksaan->id_pemeriksaan ?>
 										</td>
 										<td>
-											<?php echo $report->nama ?>
+											<?php echo $detailpemeriksaan->id_detail ?>
 										</td>
 										<td>
-											<?php echo $report->tipe ?>
+											<?php echo $detailpemeriksaan->jumlah?>
 										</td>
 										<td>
-											<?php echo $report->warna ?>
+											<?php echo $detailpemeriksaan->status?>
 										</td>
 										<td>
-											<?php echo $report->status ?>
-										</td>
-										<td>
-											<?php echo $report->pic ?>
-										</td>
-										<td>
-											<?php echo $report->tanggal ?>
+											<img src="<?php echo base_url('upload/detailpemeriksaan/'.$detailpemeriksaan->foto) ?>" width="100px">
 										</td>
 										
+										<td width="250">
+											<a href="<?php echo site_url('admin/detailpemeriksaan/edit/'.$detailpemeriksaan->id) ?>"
+											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+											<a onclick="deleteConfirm('<?php echo site_url('admin/detailpemeriksaan/delete/'.$detailpemeriksaan->id) ?>')"
+											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+										</td>
 									</tr>
 									<?php endforeach; ?>
 
@@ -91,14 +89,6 @@
 	<?php $this->load->view("admin/_partials/js.php") ?>
 
 	<script>
-
-		$('#dataTable').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-
 		function deleteConfirm(url) {
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();

@@ -32,24 +32,21 @@
 
 						<form action="<?php base_url('admin/pemeriksaan/add') ?>" method="post" enctype="multipart/form-data" >
 							
+							<?php echo validation_errors() ?>
 							<div class="form-group">
-								<label for="name">Id Ruang*</label>
-								<input class="form-control <?php echo form_error('id_ruang') ? 'is-invalid':'' ?>"
-								 type="text" name="id_ruang" placeholder="Id Ruang"  />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_ruang') ?>
-								</div>
-							</div>
+								<label for="name">Ruang*</label>
+								<select class="form-control" id="ruang" name="id_ruang">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+									foreach ($this->db->get('tb_ruang')->result_array() as $lokbar) {
+										echo "<option value='".$lokbar['id']."'>".$lokbar['nama']."</option>";
+									}
 
-							<div class="form-group">
-								<label for="name">Id Detail*</label>
-								<input class="form-control <?php echo form_error('id_detail') ? 'is-invalid':'' ?>"
-								 type="text" name="id_detail" placeholder="Id Detail" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_detail') ?>
-								</div>
+									echo form_error('ruang');
+								  ?>
+
+							    </select>
 							</div>
-							
 							<div class="form-group">
 								<label for="name">PIC*</label>
 								<input class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
@@ -60,23 +57,6 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Jumlah Barang*</label>
-								<input class="form-control <?php echo form_error('jumlahbarang') ? 'is-invalid':'' ?>"
-								 type="text" name="jumlahbarang" placeholder="Jumlah Barang" />
-								<div class="invalid-feedback">
-									<?php echo form_error('jumlahbarang') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">Status*</label>
-								<select class="form-control" id="status">
-							      <option>Baik</option>
-							      <option>Rusak</option>
-							    </select>
-							</div>
-
-							<div class="form-group">
 								<label for="name">Tanggal Cek*</label>
 								<input class="form-control <?php echo form_error('tanggalcek') ? 'is-invalid':'' ?>"
 								 type="date" name="tanggalcek" placeholder="Tanggal Cek" />
@@ -84,7 +64,6 @@
 									<?php echo form_error('tanggalcek') ?>
 								</div>
 							</div>
-
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

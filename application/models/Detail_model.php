@@ -20,7 +20,6 @@
 		public $tipe;
 		public $warna;
 		public $status;
-		public $nama;
 		public $tanggal;
 		public $pic;
 		
@@ -66,10 +65,6 @@
 
 				['field' => 'status',
 				'label' => 'status',
-				'rules' => 'required'],
-
-				['field' => 'nama',
-				'label' => 'nama',
 				'rules' => 'required'],
 
 				['field'=> 'tanggal',
@@ -183,7 +178,6 @@
 			$this->tipe = $post["tipe"];
 			$this->warna = $post["warna"];
 			$this->status = $post["status"];
-			$this->nama= $post["nama"];
 			$this->tanggal=$post["tanggal"];
 			$this->pic=$post["pic"];
 			$this->db->update($this->_table, $this, array('id' => $post['id']));

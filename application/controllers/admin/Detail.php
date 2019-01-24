@@ -69,7 +69,7 @@
 	       
 	        $detail = $this->detail_model;
 	        $validation = $this->form_validation;
-	        $validation->set_rules($detail->rules());
+	        $validation->set_rules('warna','Warna','required');
 
 	        if ($validation->run()) {
 	            $detail->update();

@@ -20,6 +20,18 @@
 			$this->load->view("admin/pemeriksaan/list", $data);
 		}
 
+		public function select_ruang()
+		{
+			$data["ruang_data"] = $this->pemeriksaan_model->ruang();
+			$this->load->view('admin/pemeriksaan/new_form', $data);
+		}
+
+		public function select_detail()
+		{
+			$data["detail_data"] = $this->pemeriksaan_model->detail();
+			$this->load->view('admin/pemeriksaan/new_form', $data);
+		}
+
 		public function add()
 		{
 			$pemeriksaan = $this->pemeriksaan_model;

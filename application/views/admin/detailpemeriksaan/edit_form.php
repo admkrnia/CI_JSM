@@ -28,19 +28,28 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/detail/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo site_url('admin/detailpemeriksaan/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/detail/edit') ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php base_url('admin/detailpemeriksaan/edit') ?>" method="post" enctype="multipart/form-data">
 
-							<input type="hidden" name="id" value="<?php echo $detail->id?>" />
+							<input type="hidden" name="id" value="<?php echo $detailpemeriksaan->id?>" />
+
+							<div class="form-group">
+								<label for="name">Id Pemeriksaan*</label>
+								<input class="form-control <?php echo form_error('id_detailpemeriksaan') ? 'is-invalid':'' ?>"
+								 type="text" name="id_detailpemeriksaan" placeholder="Id detailpemeriksaan" value="<?php echo $detailpemeriksaan->id_detailpemeriksaan ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('id_detailpemeriksaan') ?>
+								</div>
+							</div>
 							
 							<div class="form-group">
 								<label for="name">Id Ruang*</label>
 								<input class="form-control <?php echo form_error('id_ruang') ? 'is-invalid':'' ?>"
-								 type="text" name="id_ruang" placeholder="Id Ruang" value="<?php echo $detail->id_ruang ?>" />
+								 type="text" name="id_ruang" placeholder="Id Ruang" value="<?php echo $detailpemeriksaan->id_ruang ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_ruang') ?>
 								</div>
@@ -49,22 +58,38 @@
 							<div class="form-group">
 								<label for="name">PIC*</label>
 								<input class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
-								 type="text" name="pic" placeholder="PIC" value="<?php echo $detail->pic ?>" />
+								 type="text" name="pic" placeholder="PIC" value="<?php echo $detailpemeriksaan->pic ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('pic') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="name">Tanggal Cek*</label>
-								<input class="form-control <?php echo form_error('tanggalcek') ? 'is-invalid':'' ?>"
-								 type="date" name="tanggalcek" placeholder="Tanggal Cek" />
+								<label for="name">Jumlah Barang*</label>
+								<input class="form-control <?php echo form_error('jumlahbarang') ? 'is-invalid':'' ?>"
+								 type="text" name="jumlahbarang" placeholder="Jumlah Barang" value="<?php echo $detailpemeriksaan->jumlahbarang ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('tanggalcek') ?>
+									<?php echo form_error('jumlahbarang') ?>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="name">Status*</label>
+								<select class="form-control" id="status">
+							      <option>Baik</option>
+							      <option>Rusak</option>
+							    </select>
+							</div>
 							
-							
+							<div class="form-group">
+								<label for="name">Foto*</label>
+								<input class="form-control <?php echo form_error('foto') ? 'is-invalid':'' ?>"/>
+								 <input type="hidden" name="old_image" value="<?php echo $detailpemeriksaan->foto ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('foto') ?>
+								</div>
+							</div>
+
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
 

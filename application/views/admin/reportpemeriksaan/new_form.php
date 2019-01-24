@@ -26,16 +26,16 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/ruang/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/reportpemeriksaan/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/ruang/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/reportpemeriksaan/add') ?>" method="post" enctype="multipart/form-data" >
 							
 							<div class="form-group">
-								<label for="name">Nama Ruang*</label>
+								<label for="name">Nama*</label>
 								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Ruang" />
+								 type="text" name="nama" placeholder="Nama Sub Kelompok" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
 								</div>

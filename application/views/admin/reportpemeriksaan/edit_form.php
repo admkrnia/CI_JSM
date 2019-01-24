@@ -24,23 +24,28 @@
 				</div>
 				<?php endif; ?>
 
+				<!-- Card  -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/ruang/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+
+						<a href="<?php echo site_url('admin/reportpemeriksaan/') ?>"><i class="fas fa-arrow-left"></i>
+							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/ruang/add') ?>" method="post" enctype="multipart/form-data" >
-							
+						<form action="<?php base_url('admin/reportpemeriksaan/edit') ?>" method="post" enctype="multipart/form-data">
+
+							<input type="hidden" name="id" value="<?php echo $reportpemeriksaan->id?>" />
+						
 							<div class="form-group">
-								<label for="name">Nama Ruang*</label>
+								<label for="name">Nama*</label>
 								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Ruang" />
+								 type="text" name="nama" placeholder="Nama " value="<?php echo $reportpemeriksaan->nama ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama') ?>
 								</div>
 							</div>
-							
+
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
 
@@ -62,7 +67,6 @@
 
 		</div>
 		<!-- /#wrapper -->
-
 
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 

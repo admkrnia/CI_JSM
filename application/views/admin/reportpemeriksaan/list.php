@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/report/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/reportpemeriksaan/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -39,29 +39,29 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($report_data as $report): ?>
+									<?php foreach ($reportpemeriksaan_data as $reportpemeriksaan): ?>
 									<tr>
 									
 										<td>
-											<?php echo $report->nomorinventaris ?>
+											<?php echo $reportpemeriksaan->nomorinventaris ?>
 										</td>
 										<td>
-											<?php echo $report->nama ?>
+											<?php echo $reportpemeriksaan->nama ?>
 										</td>
 										<td>
-											<?php echo $report->tipe ?>
+											<?php echo $reportpemeriksaan->tipe ?>
 										</td>
 										<td>
-											<?php echo $report->warna ?>
+											<?php echo $reportpemeriksaan->warna ?>
 										</td>
 										<td>
-											<?php echo $report->status ?>
+											<?php echo $reportpemeriksaan->status ?>
 										</td>
 										<td>
-											<?php echo $report->pic ?>
+											<?php echo $reportpemeriksaan->pic ?>
 										</td>
 										<td>
-											<?php echo $report->tanggal ?>
+											<?php echo $reportpemeriksaan->tanggal ?>
 										</td>
 										
 									</tr>

@@ -120,20 +120,13 @@
 							
 							<div class="form-group">
 								<label for="name">Status*</label>
-								<select class="form-control" id="status">
+								<select class="form-control" id="status" name="status">
 							      <option>Baik</option>
 							      <option>Rusak</option>
 							    </select>
 							</div>
 
-							<div class="form-group">
-								<label for="name">Nama*</label>
-								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								 type="text" name="nama" placeholder="Nama Barang" value="<?php echo $detail->nama ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('nama') ?>
-								</div>
-							</div>
+							
 
 							<div class="form-group">
 								<label for="name">Tanggal*</label>
