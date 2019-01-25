@@ -11,7 +11,7 @@
 <div class="col-md-12 mt-3">
 	<div class="card">
 	<div class="card-body">
-		JASAMARGA
+		JASAMARGA Surabaya Mojokerto
 	</div>
 </div>
 <table class="table table-striped table-bordered mt-3">
