@@ -16,6 +16,8 @@
 
 		public function index()
 		{
+			
+			
 			$data["kelompokbarang_data"] = $this->kelompokbarang_model->getAll();
 			$this->load->view("admin/kelompokbarang/list", $data);
 		}

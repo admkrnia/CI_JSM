@@ -8,14 +8,17 @@
 	{
 		
 		public function __construct()
-		{
-			parent::__construct();
-			$this->load->model("detailpemeriksaan_model");
-			$this->load->library('form_validation');
+			{
+				parent::__construct();
+				$this->load->model("detailpemeriksaan_model");
+				$this->load->library('form_validation');
+			
+			
 		}
 
 		public function index()
 		{
+			
 			$data["detailpemeriksaan_data"] = $this->detailpemeriksaan_model->getAll();
 			$this->load->view("admin/detailpemeriksaan/list", $data);
 		}

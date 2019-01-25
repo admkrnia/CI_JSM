@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 02:48 AM
+-- Generation Time: Jan 24, 2019 at 11:05 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -113,6 +113,32 @@ CREATE TABLE `tb_lokasibarang` (
 
 INSERT INTO `tb_lokasibarang` (`kode`, `nama`, `tanggal`, `pic`) VALUES
 ('11', 'MNA', '2019-01-21', 'Adam');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pegawai`
+--
+
+CREATE TABLE `tb_pegawai` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(99) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nohp` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_pegawai`
+--
+
+INSERT INTO `tb_pegawai` (`id`, `nama`, `alamat`, `nohp`, `username`, `password`, `level`, `foto`) VALUES
+(1, 'Adam', 'Malang', '081239122310', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '273469d9-af60-42b7-b497-8ac7f71143145.jpg'),
+(2, 'Farinda', 'Malang', '081239229919', 'admins', '2aefc34200a294a3cc7db81b43a81873', 'admin', 'cyclops-mobile-legends-wallpaper.jpg'),
+(4, 'Aol', 'Malang', '082139123191', 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a', 'pegawai', 'kalammonggo.png');
 
 -- --------------------------------------------------------
 
@@ -254,6 +280,13 @@ ALTER TABLE `tb_lokasibarang`
   ADD PRIMARY KEY (`kode`);
 
 --
+-- Indexes for table `tb_pegawai`
+--
+ALTER TABLE `tb_pegawai`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `tb_pemeriksaan`
 --
 ALTER TABLE `tb_pemeriksaan`
@@ -299,6 +332,12 @@ ALTER TABLE `tb_detail`
 --
 ALTER TABLE `tb_detailpemeriksaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_pegawai`
+--
+ALTER TABLE `tb_pegawai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_pemeriksaan`

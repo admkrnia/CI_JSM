@@ -16,6 +16,7 @@
 
 		public function index()
 		{
+			
 			$data["detail_data"] = $this->detail_model->getAll();
 			$this->load->view("admin/detail/list", $data);
 		}

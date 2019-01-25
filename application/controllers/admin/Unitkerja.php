@@ -16,6 +16,7 @@
 
 		public function index()
 		{
+			
 			$data["unitkerja_data"] = $this->unitkerja_model->getAll();
 			$this->load->view("admin/unitkerja/list", $data);
 		}

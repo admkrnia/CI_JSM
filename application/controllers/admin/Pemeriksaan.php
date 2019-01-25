@@ -16,6 +16,7 @@
 
 		public function index()
 		{
+			
 			$data["pemeriksaan_data"] = $this->pemeriksaan_model->getAll();
 			$this->load->view("admin/pemeriksaan/list", $data);
 		}

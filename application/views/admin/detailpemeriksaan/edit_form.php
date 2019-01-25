@@ -40,7 +40,7 @@
 							<div class="form-group">
 								<label for="name">Id Pemeriksaan*</label>
 								<input class="form-control <?php echo form_error('id_detailpemeriksaan') ? 'is-invalid':'' ?>"
-								 type="text" name="id_detailpemeriksaan" placeholder="Id detailpemeriksaan" value="<?php echo $detailpemeriksaan->id_detailpemeriksaan ?>" />
+								 type="text" name="id_detailpemeriksaan" placeholder="Id detailpemeriksaan" value="<?php echo $detailpemeriksaan->id ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_detailpemeriksaan') ?>
 								</div>
@@ -48,28 +48,20 @@
 							
 							<div class="form-group">
 								<label for="name">Id Ruang*</label>
-								<input class="form-control <?php echo form_error('id_ruang') ? 'is-invalid':'' ?>"
-								 type="text" name="id_ruang" placeholder="Id Ruang" value="<?php echo $detailpemeriksaan->id_ruang ?>" />
+								<input class="form-control <?php echo form_error('id_pemeriksaan') ? 'is-invalid':'' ?>"
+								 type="text" name="id_pemeriksaan" placeholder="Id Ruang" value="<?php echo $detailpemeriksaan->id_pemeriksaan ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('id_ruang') ?>
+									<?php echo form_error('id_pemeriksaan') ?>
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="name">PIC*</label>
-								<input class="form-control <?php echo form_error('pic') ? 'is-invalid':'' ?>"
-								 type="text" name="pic" placeholder="PIC" value="<?php echo $detailpemeriksaan->pic ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('pic') ?>
-								</div>
-							</div>
-
+							
 							<div class="form-group">
 								<label for="name">Jumlah Barang*</label>
-								<input class="form-control <?php echo form_error('jumlahbarang') ? 'is-invalid':'' ?>"
-								 type="text" name="jumlahbarang" placeholder="Jumlah Barang" value="<?php echo $detailpemeriksaan->jumlahbarang ?>" />
+								<input class="form-control <?php echo form_error('jumlah') ? 'is-invalid':'' ?>"
+								 type="text" name="jumlah" placeholder="Jumlah Barang" value="<?php echo $detailpemeriksaan->jumlah ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('jumlahbarang') ?>
+									<?php echo form_error('jumlah') ?>
 								</div>
 							</div>
 
@@ -83,8 +75,8 @@
 							
 							<div class="form-group">
 								<label for="name">Foto*</label>
-								<input class="form-control <?php echo form_error('foto') ? 'is-invalid':'' ?>"/>
-								 <input type="hidden" name="old_image" value="<?php echo $detailpemeriksaan->foto ?>" />
+								<input class="form-control <?php echo form_error('foto') ? 'is-invalid':'' ?>"
+								 type="file" name="foto" placeholder="Foto" />
 								<div class="invalid-feedback">
 									<?php echo form_error('foto') ?>
 								</div>

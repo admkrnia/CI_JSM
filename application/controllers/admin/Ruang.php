@@ -16,6 +16,7 @@
 
 		public function index()
 		{
+			
 			$data["ruang_data"] = $this->ruang_model->getAll();
 			$this->load->view("admin/ruang/list", $data);
 		}

@@ -12,10 +12,12 @@
 			parent::__construct();
 			$this->load->model("lokasibarang_model");
 			$this->load->library('form_validation');
+			
 		}
 
 		public function index()
 		{
+			
 			$data["lokasibarang_data"] = $this->lokasibarang_model->getAll();
 			$this->load->view("admin/lokasibarang/list", $data);
 		}

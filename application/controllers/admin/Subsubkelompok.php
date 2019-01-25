@@ -16,6 +16,7 @@
 
 		public function index()
 		{
+			
 			$data["subsubkelompok_data"] = $this->subsubkelompok_model->getAll();
 			$this->load->view("admin/subsubkelompok/list", $data);
 		}

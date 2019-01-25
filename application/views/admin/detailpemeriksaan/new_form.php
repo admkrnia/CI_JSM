@@ -43,7 +43,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Id Detail*</label>
+								<label for="name">Nomor Inventaris*</label>
 								<select class="form-control" id="detail" name="id_detail">
 							      <option value='0'>--pilih--</option>
 							      <?php 
