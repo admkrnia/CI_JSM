@@ -45,7 +45,6 @@
 		public function save()
 		{
 			$post = $this->input->post();
-			$this->id = uniqid();
 			$this->nama = $post["nama"];
 			$this->db->insert($this->_table, $this);
 		}

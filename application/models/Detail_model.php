@@ -79,6 +79,12 @@
 
 		public function getAll()
 		{
+
+			$this->db->select('
+				tb_detail.*,
+				(select kode from tb_subkelompok where id=tb_detail.idsub) as kode_subkelompok,
+				(select kode from tb_subsubkelompok where id=tb_detail.idsubsub) as kode_subsubkelompok,
+				');
 			return $this->db->get($this->_table)->result();
 		}
 

@@ -8,6 +8,7 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Title -->
     <title>Home</title>
     <!-- Place favicon.ico in the root directory -->
@@ -53,7 +54,7 @@
                 </button>
                 <a href="#" class="navbar-brand logo" >
 
-                    <h2 align="center"><img src="<?php echo base_url('assets/')?>img/logo1.png" style="max-height: 70px" alt=""> JASAMARGA</h2>
+                    <h2 align="center"><img src="<?php echo base_url('assets/')?>img/JSM.png" style="max-height: 70px" alt=""></h2>
                 </a>
             </div>
             <!--Logo/-->

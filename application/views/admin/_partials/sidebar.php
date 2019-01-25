@@ -84,17 +84,7 @@
             <a class="dropdown-item" href="<?php echo site_url('admin/detail') ?>">List Detail</a>
         </div>
     </li>
-    <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'detailpemeriksaan' ? 'active': '' ?>">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-fw fa-boxes"></i>
-            <span>Detail Pemeriksaan</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo site_url('admin/detailpemeriksaan/add') ?>">New Detail Pemeriksaan</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/detailpemeriksaan') ?>">List Detail Pemeriksaan</a>
-        </div>
-    </li>
+    
     <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'pemeriksaan' ? 'active': '' ?>">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">

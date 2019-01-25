@@ -30,7 +30,7 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-comments"></i>
         </div>
-        <div class="mr-5">26 New Messages!</div>
+        <div class="mr-5">Jumlah Barang</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
         <span class="float-left">View Details</span>
@@ -46,7 +46,7 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-list"></i>
         </div>
-        <div class="mr-5">11 New Tasks!</div>
+        <div class="mr-5">Barang Rusak</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
         <span class="float-left">View Details</span>
@@ -62,7 +62,7 @@
         <div class="card-body-icon">
           <i class="fas fa-fw fa-shopping-cart"></i>
         </div>
-        <div class="mr-5">123 New Orders!</div>
+        <div class="mr-5">Barang Bagus</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
         <span class="float-left">View Details</span>
@@ -72,7 +72,7 @@
         </a>
       </div>
       </div>
-      <div class="col-xl-3 col-sm-6 mb-3">
+      <!-- <div class="col-xl-3 col-sm-6 mb-3">
       <div class="card text-white bg-danger o-hidden h-100">
         <div class="card-body">
         <div class="card-body-icon">
@@ -87,14 +87,14 @@
         </span>
         </a>
       </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Area Chart Example-->
     <div class="card mb-3">
       <div class="card-header">
       <i class="fas fa-chart-area"></i>
-      Visitor Stats</div>
+      Kondisi</div>
       <div class="card-body">
       <canvas id="myAreaChart" width="100%" height="30"></canvas>
       </div>

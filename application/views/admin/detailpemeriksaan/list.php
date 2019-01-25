@@ -21,16 +21,18 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/detailpemeriksaan/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/detailpemeriksaan/add/'.$id_pemeriksaan) ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/detailpemeriksaan/reportkartu/'.$id_pemeriksaan) ?>" target="_blank"><i class="fas fa-print"></i> Print</a>
 					</div>
 					<div class="card-body">
-
+						Tanggal : <?php echo $pemeriksaan->tanggalcek ?>
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>Id Pemeriksaan</th>
-										<th>id Detail</th>
+										<th>Nomor Inventaris</th>
+										<th>Nama Barang</th>
 										<th>Jumlah</th>
 										<th>Status</th>
 										<th>Foto</th>
@@ -44,7 +46,10 @@
 											<?php echo $detailpemeriksaan->id_pemeriksaan ?>
 										</td>
 										<td>
-											<?php echo $detailpemeriksaan->id_detail ?>
+											<?php echo $detailpemeriksaan->nomorinventaris ?>
+										</td>
+										<td>
+											<?php echo $detailpemeriksaan->nama_barang ?>
 										</td>
 										<td>
 											<?php echo $detailpemeriksaan->jumlah?>
@@ -53,7 +58,7 @@
 											<?php echo $detailpemeriksaan->status?>
 										</td>
 										<td>
-											<img src="<?php echo base_url('upload/detailpemeriksaan/'.$detailpemeriksaan->foto) ?>" width="100px">
+											<img src="<?php echo base_url('upload/pemeriksaan/'.$detailpemeriksaan->foto) ?>" width="100px">
 										</td>
 										
 										<td width="250">

@@ -48,6 +48,9 @@
 											<?php echo $pemeriksaan->tanggalcek ?>
 										</td>
 										<td width="250">
+
+											<a href="<?php echo site_url('admin/detailpemeriksaan/index/'.$pemeriksaan->id) ?>"
+											 class="btn btn-small"><i class="fas fa-info-circle"></i> Detail</a>
 											<a href="<?php echo site_url('admin/pemeriksaan/edit/'.$pemeriksaan->id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/pemeriksaan/delete/'.$pemeriksaan->id) ?>')"

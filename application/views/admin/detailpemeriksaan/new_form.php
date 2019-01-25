@@ -36,7 +36,7 @@
 							<div class="form-group">
 								<label for="name">Id Pemeriksaan*</label>
 								<input class="form-control <?php echo form_error('id_pemeriksaan') ? 'is-invalid':'' ?>"
-								 type="text" name="id_pemeriksaan" placeholder="Id Pemeriksaan" />
+								 type="text" name="id_pemeriksaan" placeholder="Id Pemeriksaan" value="<?php echo $pemeriksaan->id ?>" readonly/>
 								<div class="invalid-feedback">
 									<?php echo form_error('id_pemeriksaan') ?>
 								</div>

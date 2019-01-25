@@ -11,7 +11,7 @@
       <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="#">Hapus</a>
+        <a class="btn btn-primary" href="#" id="btn-delete">Hapus</a>
       </div>
     </div>
   </div>

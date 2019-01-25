@@ -48,17 +48,24 @@
 			return $this->db->get($this->_table)->result();
 		}
 
+		public function get_by_pemeriksaan($id)
+		{
+			$this->db->select('tb_detailpemeriksaan.*, (SELECT concat(tb_lokasibarang.kode,"." , tb_unitkerja.kode,"/" , tb_kelompokbarang.kode,"." , tb_subkelompok.kode,"." , tb_subsubkelompok.kode,"/" , tb_detail.nomorurut) AS nomorinventaris FROM tb_unitkerja INNER JOIN (tb_lokasibarang INNER JOIN (tb_kelompokbarang INNER JOIN (tb_subsubkelompok INNER JOIN (tb_subkelompok INNER JOIN tb_detail ON tb_subkelompok.id = tb_detail.idsub) ON tb_subsubkelompok.id = tb_detail.idsubsub) ON tb_kelompokbarang.kode = tb_detail.kodekelompok) ON tb_lokasibarang.kode = tb_detail.kodelokasi) ON tb_unitkerja.kode = tb_detail.kodeunit where tb_detail.id=tb_detailpemeriksaan.id_detail) as nomorinventaris,
+				(select tb_subsubkelompok.nama from tb_detail inner join tb_subsubkelompok on tb_detail.idsubsub=tb_subsubkelompok.id where tb_detail.id=tb_detailpemeriksaan.id_detail ) as nama_barang', FALSE);
+			$this->db->where('id_pemeriksaan',$id);
+			return $this->db->get($this->_table)->result();
+		}
 
 		public function getById($id)
 		{
 			return $this->db->get_where($this->_table, ["id" => $id])->row();
 		}
 
-		public function save()
+		public function save($id_pemeriksaan)
 		{
 			$post = $this->input->post();
 			$this->id_detail = $post["id_detail"];
-			$this->id_pemeriksaan = $post["id_pemeriksaan"];
+			$this->id_pemeriksaan = $id_pemeriksaan;
 			$this->jumlah = $post["jumlah"];
 			$this->status = $post["status"];
 			$this->foto=$this->_uploadImage();
@@ -74,10 +81,8 @@
 			$this->jumlah = $post["jumlah"];
 			$this->status = $post["status"];
 			
-			if (!empty($_FILES["foto"]["nama"])) {
+			if (!empty($_FILES["foto"]["name"])) {
 			    $this->foto = $this->_uploadImage();
-			} else {
-			    $this->foto = $post["old_image"];
 			}
 
 			$this->db->update($this->_table, $this, array('id' => $post['id']));

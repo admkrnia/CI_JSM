@@ -32,8 +32,8 @@
 										<th>Kode Lokasi</th>
 										<th>Kode Unit</th>
 										<th>Kode Kelompok</th>
-										<th>ID Sub Kelompok</th>
-										<th>ID Sub-sub Kelompok</th>
+										<th>Kode Sub Kelompok</th>
+										<th>Kode Sub-sub Kelompok</th>
 										<th>Nomor Urut</th>
 										<th>Nomor Inventaris</th>
 										<th>Tipe</th>
@@ -57,10 +57,10 @@
 											<?php echo $detail->kodekelompok?>
 										</td>
 										<td>
-											<?php echo $detail->idsub ?>
+											<?php echo $detail->kode_subkelompok ?>
 										</td>
 										<td>
-											<?php echo $detail->idsubsub ?>
+											<?php echo $detail->kode_subsubkelompok ?>
 										</td>
 										<td>
 											<?php echo $detail->nomorurut?>

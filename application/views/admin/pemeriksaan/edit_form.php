@@ -58,7 +58,7 @@
 							<div class="form-group">
 								<label for="name">Tanggal Cek*</label>
 								<input class="form-control <?php echo form_error('tanggalcek') ? 'is-invalid':'' ?>"
-								 type="date" name="tanggalcek" placeholder="Tanggal Cek" />
+								 type="date" name="tanggalcek" value="<?php echo date('Y-m-d') ?>" class="form-control" style="width:250px" placeholder="Tanggal Cek" />
 								<div class="invalid-feedback">
 									<?php echo form_error('tanggalcek') ?>
 								</div>

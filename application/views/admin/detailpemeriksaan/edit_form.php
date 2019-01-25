@@ -39,38 +39,44 @@
 
 							<div class="form-group">
 								<label for="name">Id Pemeriksaan*</label>
-								<input class="form-control <?php echo form_error('id_detailpemeriksaan') ? 'is-invalid':'' ?>"
-								 type="text" name="id_detailpemeriksaan" placeholder="Id detailpemeriksaan" value="<?php echo $detailpemeriksaan->id ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_detailpemeriksaan') ?>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="name">Id Ruang*</label>
 								<input class="form-control <?php echo form_error('id_pemeriksaan') ? 'is-invalid':'' ?>"
-								 type="text" name="id_pemeriksaan" placeholder="Id Ruang" value="<?php echo $detailpemeriksaan->id_pemeriksaan ?>" />
+								 type="text" name="id_pemeriksaan" placeholder="Id_pemeriksaan" value="<?php echo $pemeriksaan->id ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_pemeriksaan') ?>
 								</div>
 							</div>
-
+							
 							
 							<div class="form-group">
-								<label for="name">Jumlah Barang*</label>
-								<input class="form-control <?php echo form_error('jumlah') ? 'is-invalid':'' ?>"
-								 type="text" name="jumlah" placeholder="Jumlah Barang" value="<?php echo $detailpemeriksaan->jumlah ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('jumlah') ?>
-								</div>
-							</div>
+								<label for="name">Nomor Inventaris*</label>
+								<select class="form-control" id="detail" name="id_detail">
+							      <option value='0'>--pilih--</option>
+							      <?php 
+										foreach ($this->db->query('SELECT tb_detail.id as id_detail ,tb_detail.kodelokasi, tb_detail.kodeunit, tb_detail.kodekelompok, tb_subkelompok.kode AS tb_subkelompokkode, tb_subsubkelompok.kode AS tb_subsubkelompokkode, tb_detail.nomorurut, concat(tb_lokasibarang.kode,"." , tb_unitkerja.kode,"/" , tb_kelompokbarang.kode,"." , tb_subkelompok.kode,"." , tb_subsubkelompok.kode,"/" , tb_detail.nomorurut) AS nomorinventaris, tb_subsubkelompok.nama AS nama, tb_detail.tipe, tb_detail.warna, tb_detail.status, tb_detail.pic, tb_detail.tanggal FROM tb_unitkerja INNER JOIN (tb_lokasibarang INNER JOIN (tb_kelompokbarang INNER JOIN (tb_subsubkelompok INNER JOIN (tb_subkelompok INNER JOIN tb_detail ON tb_subkelompok.id = tb_detail.idsub) ON tb_subsubkelompok.id = tb_detail.idsubsub) ON tb_kelompokbarang.kode = tb_detail.kodekelompok) ON tb_lokasibarang.kode = tb_detail.kodelokasi) ON tb_unitkerja.kode = tb_detail.kodeunit')->result_array() as $lokbar) {
+											echo "<option value='".$lokbar['id_detail']."'>".$lokbar['nomorinventaris']."-".$lokbar['nama']."</option>";
+										}
 
-							<div class="form-group">
-								<label for="name">Status*</label>
-								<select class="form-control" id="status">
-							      <option>Baik</option>
-							      <option>Rusak</option>
-							    </select>
+										echo form_error('detail');
+									  ?>
+
+								    </select>
+								</div>
+								
+								<div class="form-group">
+									<label for="name">Jumlah*</label>
+									<input class="form-control <?php echo form_error('jumlah') ? 'is-invalid':'' ?>"
+									 type="text" name="jumlah" placeholder="Jumlah" value="<?php echo $detailpemeriksaan->jumlah ?>" />
+									<div class="invalid-feedback">
+										<?php echo form_error('jumlah') ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="name">Status*</label>
+									<select class="form-control" id="status" name="status">
+								      <option>Baik</option>
+								      <option>Rusak</option>
+								    </select>
 							</div>
 							
 							<div class="form-group">
